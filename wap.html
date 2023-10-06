@@ -1,0 +1,295 @@
+<head>
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+  <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"/>
+  <META HTTP-EQUIV="Expires" CONTENT="0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <meta charset="utf-8">
+  <Meta http-equiv="Set-Cookie" Content="cookievalue=uisyms; expires=Wednesday,21-Oct-98 16:14:21 GMT; path=/"/>
+  <title>LiteO2Tab</title>
+  <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+  <!-- <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <link rel="stylesheet" href="./css/startpage_wap.css" type="text/css" media="all">
+  <script type="text/javascript" src="./js/time_wap.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="./js/startpage_popup.js?ver=9"></script>
+  <script type="text/javascript" src="./js/startpage.js?ver=11"></script>
+
+  <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon">
+  <script type="text/javascript">
+
+    // jinrishici.load(function(result) {
+    //   var sentence = document.querySelector("#poem_sentence")
+    //   var info = document.querySelector("#poem_info")
+    //   sentence.innerHTML = result.data.content
+    //   info.innerHTML = '——《' + result.data.origin.title + '》' + '【' + result.data.origin.dynasty + '】' + result.data.origin.author
+    // });
+  </script>
+  <script src="./js/LiteO2Tab_Core.js"></script>
+  <script>
+    function mobile_device_detect(url) {
+      var thisOS = navigator.platform;
+      var os = new Array("iPhone", "iPod", "iPad", "android", "Nokia", "SymbianOS", "Symbian", "Windows Phone", "Phone", "Linux armv71", "MAUI", "UNTRUSTED/1.0", "Windows CE", "BlackBerry", "IEMobile","Linux aarch64","Linux");
+      console.log("系统架构："+navigator.platform);
+      console.log("是否在列表里"+os.includes(navigator.platform));
+    
+
+      if(!os.includes(navigator.platform)){
+        window.location.href = url;
+      }
+      // //因为相当部分的手机系统不知道信息,这里是做临时性特殊辨认
+      // if (navigator.platform.indexOf('iPad') == -1) {
+      //   window.location = url;
+      // }
+      // //做这一部分是因为Android手机的内核也是Linux
+      // //但是navigator.platform显示信息不尽相同情况繁多,因此从浏览器下手，即用navigator.appVersion信息做判断
+      // var check = navigator.appVersion;
+      // if (check.match(/linux/i)) {
+      //   //X11是UC浏览器的平台 ，如果有其他特殊浏览器也可以附加上条件
+      //   if (check.match(/mobile/i) || check.match(/X11/i)||check.match(/Miui/i)) {
+          
+      //   }else{
+      //     window.location = url;
+      //   }
+      // }
+      // //类in_array函数
+      // Array.prototype.in_array = function (e) {
+      //   for (i = 0; i < this.length; i++) {
+      //     if (this[i] == e)
+      //       return true;
+      //   }
+      //   return false;
+      // }
+    }
+    mobile_device_detect("index.html")
+  </script>
+  <!--Layui-->
+  <link href="layui/css/layui.css" rel="stylesheet">
+  <script src="layui/layui.js"></script>
+</head>
+
+<body class="wallpaper" id="nobing">
+  <div id="spcontext" class="spmain">
+    <div id="clock" class="clock" style="cursor:default;margin: 0 auto;"></div>
+    <center><div id="date" class="date"></div> </center>
+    <div id="searchbox" tabindex="1">
+      <form id="searchform" action="https://www.baidu.com/s" target="_blank">
+        <center><input style="animation-fill-mode: forwards;" id="search" class="search" type="text" name="q" size="60"
+            placeholder="搜索" /></center>
+      </form>
+      </form>
+    </div>
+    <div id="searchTargets">
+      <a tabindex="1" href="javascript:baidusearch()" class="youyuantext"><span id="baidu">
+          <center id="baiduIcon">百度</center>
+        </span></a>
+      <a tabindex="2" href="javascript:bingsearch()" class="youyuantext"><span id="bing">
+          <center id="bingIcon">必应</center>
+        </span></a>
+      <a tabindex="3" href="javascript:sogousearch()" class="youyuantext"><span id="sogou">
+          <center id="sogouIcon">搜狗</center>
+        </span></a>
+      <a tabindex="4" href="javascript:sosearch()" class="youyuantext"><span id="so">
+          <center id="soIcon">360</center>
+        </span></a>
+    </div>
+  </div>
+  <script type="text/javascript" src="./js/search.js?ver=10"></script>
+
+
+  <div class="copyright">
+    <center><a id="hitokoto_text" href="#" target="_blank"></a></center>
+    <center id="copyri" class="copyrighttext">&copy; 2020-2021 <a class="nobr" target="_blank"
+        href="https://space.bilibili.com/586310538">bil_fis</a> | 仅作参考学习使用，禁止用于任何商业活动 &nbsp;&nbsp;|&nbsp;&nbsp;<a
+        href="javascript:popBox()">关于</a></center>
+  </div>
+
+
+
+
+
+  <!--关于弹出框!-->
+  <div id="popLayer" class="popLayer">
+    <div class="close">
+      <button class="exit-button" href="javascript:void(0)" onclick="closeBox()">X</button>
+    </div>
+  </div>
+  <div id="popBox" class="popBox">
+    <div class="content">
+      <center><img src="img/logo.svg" style="width:50px;height:50px;" />
+        <br />
+        <span class="equlinelight" style="font-size:30px">LiteO2 Tab for Phones</span>
+        <br />
+        <span>v3.2</span>
+        <br />
+        <span style="font-size:5px">Have a good life!</span>
+        <br />
+        <span style="font-size:5px">本搜索页使用HTML + CSS + JS制作</span>
+        <br />
+        <span style="font-size:5px">又是咕咕咕的一天:P</span>
+      </center>
+      <br />
+      <center style="font-size:15px">更新日志</center>
+      <hr>
+
+      本版本在电脑端V3.2.14beta版本上修改，有ui适配问题，且不会与电脑端版本同步更新，望周知
+      <br>
+      电脑端更新日志：
+      <ul class="layui-timeline">
+        <li class="layui-timeline-item">
+          <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+          <div class="layui-timeline-content layui-text">
+            <h3 class="layui-timeline-title">V3.2（2023-10-5更新）</h3>
+            <p>
+            <div class="rebuild"><span class="notice">修改</span></div>字体修改为 江城圆体700W<br>
+            <!-- <div class="rebuild"><span class="notice">新增</span></div>添加一言<br> -->
+            <span class="delete"><span style="color: white">重要</span></span><br>搜索引擎保存存在bug
+            </p>
+          </div>
+        </li></ul>
+
+      <ul class="layui-timeline">
+        <li class="layui-timeline-item">
+          <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+          <div class="layui-timeline-content layui-text">
+            <h3 class="layui-timeline-title">V3.1（2023-8-21更新）</h3>
+            <p>
+            <div class="rebuild"><span class="notice">新增</span></div>添加一言<br>
+            <span class="delete"><span style="color: white">重要</span></span><br>设置存在bug
+            </p>
+          </div>
+        </li></ul>
+        <ul class="layui-timeline">
+        <li class="layui-timeline-item">
+          <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+          <div class="layui-timeline-content layui-text">
+            <h3 class="layui-timeline-title">V3.0</h3>
+            <p>
+            <div class="conguatulations"><span class="notice">大事件</span></div>更名为 LiteO2 Tab
+            <div class="repair"><span class="notice">修复</span></div>将定位模式改为相对定位
+            <div class="rebuild"><span class="notice">新增</span></div>添加Layui引用<br>
+            <span class="delete"><span style="color: white">删除</span></span><br>移除时间效果及在线北京时间
+            <div class="rebuild"><span class="notice">新增</span></div>添加设置，可以修改背景图片及搜索引擎<br>
+            </p>
+          </div>
+        </li></ul> 
+
+        2022-4-17
+        <div class="new"><span class="notice">新增</span></div>360搜索切换选项
+        <br />
+        <div class="repair"><span class="notice">修复</span></div>修复了底部信息显示换行的bug
+        <br />
+        <br />
+        2022-1-12
+        <div class="rebuild"><span class="notice">新增</span></div>解决了在选择搜索引擎时点击背景框不能成功选中的问题
+        <br />
+        <br />
+        2021-11-7
+        <div class="rebuild"><span class="notice">新增</span></div>添加“在线北京时间”到时间中
+        <br />
+        <div class="rebuild"><span class="notice">新增</span></div>将“关于”关闭按钮写入popLayer层
+        <br />
+        <div class="rebuild"><span class="notice">新增</span></div>默认搜索引擎设定为百度
+        <br />
+        <div class="rebuild"><span class="notice">新增</span></div>修复搜索引擎选定提示错误
+        <br />
+        <div class="repair"><span class="notice">修复</span></div><span class="delete"><span
+            style="color: white">重要</span></span>&nbsp;&nbsp;已知存在的搜索引擎选择bug
+        <br />
+        <div class="conguatulations"><span class="notice">大事件</span></div>&nbsp;&nbsp;更新为2.0版本
+        <br />
+        <br />
+        2021-8-17
+        <div class="repair"><span class="notice">修复</span></div><span class="delete"><span
+            style="color: white">重要</span></span>&nbsp;&nbsp;已知存在的搜索引擎选择bug
+        <br />
+        <div class="rebuild"><span class="notice">新增</span></div>添加搜索引擎选定提示
+        <br />
+        <div class="new"><span class="notice">新增</span></div>搜索引擎选择
+        <br />
+        <div class="rebuild"><span class="notice">新增</span></div>UI新增
+        <br />
+        <div class="repair"><span class="notice">修复</span></div><span class="delete"><span
+            style="color: white">重要</span></span>&nbsp;&nbsp;搜索框placeholder随动画移动错位问题
+        <br />
+        <br />
+        2021-8-16
+        <div class="repair"><span class="notice">修复</span></div><span class="delete"><span
+            style="color: white">重要</span></span>&nbsp;&nbsp;搜索框鬼畜问题
+        <br />
+        <div class="repair"><span class="notice">修复</span></div>时间动画错误问题
+        <br />
+        <div class="new"><span class="notice">新增</span></div>今日古诗随机古诗显示
+        <br />
+        <div class="rebuild"><span class="notice">新增</span></div>修改背景为必应每日壁纸
+        <br />
+        <div class="conguatulations"><span class="notice">大事件</span></div>本页代码重写
+        <br />
+        <br />
+        2021-8-16 16:10
+        <div class="conguatulations"><span class="notice">大事件</span></div>开始制作
+        <br />
+    </div>
+  </div>
+
+  <div class="gushi" id="jinripoem">
+    <br />
+    <div id="poem_sentence" class="equline">正在加载诗句....</div>
+    <div id="poem_info" class="equlinelight">正在加载古诗信息....</div>
+  </div>
+  <div id="closefew"></div>
+  <div id="closefewbox">
+    <h1>马上就好</h1>
+    <span>我们正在重新制作，稍后再来看看吧</span>
+  </div>
+  <div id="closeall"></div>
+  <div id="closeallbox">
+  </div>
+
+
+
+  <div id="indexTab_btn">
+    <center><a href="javascript:showset();" class="layui-icon layui-icon-set" style="font-size:50px;"></a></center>
+  </div>
+
+
+  <!-- 设置框 -->
+  <div id="setLay" class="popLayer">
+    <div class="close">
+      <button class="exit-button" href="javascript:void(0)" onclick="hideset()">X</button>
+    </div>
+  </div>
+  <div id="setBox" class="popBox">
+    <div class="content">
+      <br>
+      <h1>设置</h1>
+      <p>注意：请不要清理缓存和cookie，这会导致设置失效！</p>
+      <hr>
+      <p>
+      <h3>自定义页面背景：<input type="text" id="indexTab_bginput" /></h3><a href="https://0625711.xyz/tools/img-to-base64.html" style="color: black;" target="_blank">在线图片转base64</a></p>
+      <p><input type="check" id="indexTab_bginput_bs64" value="使用base64编码格式" />
+      <p>
+      <h3>自定义搜索引擎：<br>地址：<input type="text" id="indexTab_seinput_1" /><br>?后参数：<input type="text"
+          id="indexTab_seinput_2"></h3>(localStorage.LiteO2_idse)<br>[设置后无法使用默认三个搜索引擎（按钮被隐藏）]
+      <br>
+      <h3>自定义字体：</h3> <br>字体font-family：<input type="text" id="indexTab_font" /><br>修改的字体并不能全局生效，部分为固定字体<br>
+      <br>
+      <hr>
+      <!-- <h3><input type="checkbox" id="usehitoko" value="" />启用一言</h3>
+      <br>
+      <h4><input type="checkbox" id="usebitbad" value="" /><a style="color:black" href="https://bitbad.top">有点坏儿</a>API
+      </h4>
+      <br>
+      <h4><input type="checkbox" id="useimlazy" value="" />imlazyAPI</h4>
+      <hr>
+      <h4><input type="checkbox" id="accurate-to-sec" value="" />时间精确到秒</h4>
+      <h4><input type="checkbox" id="showdate" value="" />显示日期</h4> -->
+      <p>持续开发ing</p>
+      <a href="javascript:saveSets();" class="layui-btn layui-btn-normal">保存</a>
+    </div>
+
+
+
+
+
+    <!--新功能-->
+</body>

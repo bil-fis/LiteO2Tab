@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+
+<script>
+    function getChromeVersion() {
+    var arr = navigator.userAgent.split(' '); 
+    var chromeVersion = '';
+    for(var i=0;i < arr.length;i++){
+        if(/chrome/i.test(arr[i]))
+        chromeVersion = arr[i]
+    }
+    if(chromeVersion){
+        return Number(chromeVersion.split('/')[1].split('.')[0]);
+    } else {
+        return false;
+    }
+}
+    document.writeln("架构："+navigator.platform)
+    document.writeln("<br>")
+    document.writeln("浏览器版本："+navigator.appVersion)
+    document.writeln("<br>ua："+navigator.userAgent)
+    if(getChromeVersion()){
+        if(getChromeVersion()<90){
+            document.writeln("<br>Chrome版本：<span style='color:red'>"+getChromeVersion()+"</span>（推荐使用Chrome90+版本，虽然旧版也兼容但是不知道会有什么bug）")
+        }else{
+            document.writeln("<br>Chrome版本：<span style=''>"+getChromeVersion()+"</span>")
+        }
+    }else{
+        document.writeln("<br>你使用的不是chrome内核的浏览器捏，不会是IE罢")
+    }
+    document.writeln("<br>浏览器语言："+ navigator.language )
+    document.write("<br>访问地址：")
+    </script>
+    <script src="http://whois.pconline.com.cn/jsWrite.jsp"></script>
+<script>
+    document.writeln("<br><a href='javascript:testnow()'>开始测试</a><br> <div id='res'></div>")
+    
+    function testnow(){
+        document.getElementById("res").innerHTML=""
+    }
+</script>
